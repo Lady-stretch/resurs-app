@@ -1,0 +1,85 @@
+/* src/styles/theme.css */
+
+/* ГЛОБАЛЬНЫЕ ТОКЕНЫ ДЛЯ СВЕТЛОЙ ТЕМЫ ПРИЛОЖЕНИЯ */
+:root {
+    /* Цветовой базис бренда РЕСУРС */
+    --max-ui-color-primary: #967BB6;        /* Фирменный Лавандовый для кнопок и фокусов */
+    --max-ui-color-accent: #B38639;         /* Фирменное Золото для важных плашек и VIP-статусов */
+    --max-ui-bg-base: #F4F4F9;              /* Светлый серо-кремовый фон из Вашего index.html */
+    --max-ui-bg-element: rgba(0, 0, 0, 0.04); /* Фон элементов (--elem-bg) */
+    
+    /* Текстовые маркеры */
+    --max-ui-text-primary: #05050A;         /* Главный темный текст (--text-main) */
+    --max-ui-text-secondary: rgba(8, 8, 20, 0.7); /* Приглушенный текст (--text-dim) */
+    
+    /* Глассморфизм и границы */
+    --max-ui-glass-background: rgba(255, 255, 255, 0.85); /* Матовое стекло из кода сайта */
+    --max-ui-glass-blur: 20px;
+    --max-ui-border-base: rgba(0, 0, 0, 0.08); /* --glass-border */
+
+    /* Шрифтовые гарнитуры */
+    --max-ui-font-family: 'Manrope', sans-serif;
+    --max-ui-font-serif: 'Cormorant Garamond', serif;
+    
+    /* Скругления по стандарту мягкого фитнеса */
+    --max-ui-radius-card: 24px;
+    --max-ui-radius-button: 12px;
+    
+    /* Плавная физика переходов из index.html */
+    --max-ui-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ГЛОБАЛЬНЫЕ ТОКЕНЫ ДЛЯ ТЕМНОЙ ТЕМЫ ПРИЛОЖЕНИЯ (РЕЖИМ "ТЕНЬ") */
+[data-theme="dark"], 
+.max-ui-dark-theme {
+    --max-ui-color-primary: #A88FCA;        /* Чуть более яркая лаванда для контраста в темноте */
+    --max-ui-color-accent: #C5A059;         /* Светлое золото из Вашего темного блока [data-theme="dark"] */
+    --max-ui-bg-base: #080814;              /* Глубокий ночной фон из кода Вашего сайта */
+    --max-ui-bg-element: rgba(255, 255, 255, 0.05); /* --elem-bg для темной темы */
+    
+    /* Текстовые маркеры */
+    --max-ui-text-primary: #F4F4F9;         /* Светлый текст в темноте */
+    --max-ui-text-secondary: rgba(244, 244, 249, 0.6); /* --text-dim для темной темы */
+    
+    /* Глассморфизм в темноте */
+    --max-ui-glass-background: rgba(255, 255, 255, 0.02); /* Ультрапрозрачное стекло из сайта */
+    --max-ui-border-base: rgba(255, 255, 255, 0.08); /* --glass-border для темной темы */
+}
+
+/* Кастомные утилитарные классы для бенто-сетки и матового стекла */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.bento-card-glass {
+    background: var(--max-ui-glass-background);
+    backdrop-filter: blur(var(--max-ui-glass-blur));
+    -webkit-backdrop-filter: blur(var(--max-ui-glass-blur));
+    border: var(--max-ui-border-base);
+    border-radius: var(--max-ui-radius-card);
+    padding: 30px;
+    transition: var(--max-ui-transition);
+    box-shadow: 0 8px 32px 0 rgba(8, 8, 20, 0.05);
+}
+
+.bento-card-glass:hover {
+    transform: translateY(-4px);
+    border-color: var(--max-ui-color-primary);
+    box-shadow: 0 12px 40px 0 rgba(150, 123, 178, 0.15);
+}
+
+/* Эффект прозрачной шапки (Header) с эффектом размытия */
+.transparent-blur-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(244, 244, 249, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: var(--max-ui-border-base);
+    z-index: 1000;
+}
